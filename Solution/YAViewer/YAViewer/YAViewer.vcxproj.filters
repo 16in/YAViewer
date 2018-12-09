@@ -110,4 +110,7 @@
       <Filter>リソース ファイル</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="YAViewer.exe.manifest" />
+  </ItemGroup>
 </Project>

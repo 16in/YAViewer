@@ -54,6 +54,9 @@
   <ItemGroup>
     <ResourceCompile Include="..\..\..\YAViewer\YAViewer.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="YAViewer.exe.manifest" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{A9C995F8-A7FE-49D0-AE17-E67293096D47}</ProjectGuid>
