@@ -2,6 +2,7 @@
 
 @rem @echo off
 
+rd /S /Q .vs
 rd /S /Q bin
 del /A:-S /S /Q *.suo
 del /A:-S /S /Q *.user
