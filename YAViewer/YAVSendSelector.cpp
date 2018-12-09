@@ -33,13 +33,13 @@ struct SendSelectTarget
 //
 static const SendSelectTarget scgSelectTarget[] =
 {
-	{ SST_CLIPBOARD,						L"ÉNÉäÉbÉvÉ{Å[Éh" },
-	{ SST_FACE_EDIT,						L"(ÅLÑtÅM) Edit" },
-	{ SST_FACE_EDIT | SST_TEXTBOX_FLAG,		L"(ÅLÑtÅM) √∑ΩƒŒﬁØ∏Ω" },
-	{ SST_ORINRIN_EDITOR,					L"Orinrin Editor" },
-	{ SST_ORINRIN_EDITOR | SST_TEXTBOX_FLAG,L"Orinrin ⁄≤‘ŒﬁØ∏Ω" },
+	{ (DWORD)SST_CLIPBOARD,								L"ÉNÉäÉbÉvÉ{Å[Éh" },
+	{ (DWORD)SST_FACE_EDIT,								L"(ÅLÑtÅM) Edit" },
+	{ (DWORD)(SST_FACE_EDIT | SST_TEXTBOX_FLAG),		L"(ÅLÑtÅM) √∑ΩƒŒﬁØ∏Ω" },
+	{ (DWORD)SST_ORINRIN_EDITOR,						L"Orinrin Editor" },
+	{ (DWORD)(SST_ORINRIN_EDITOR | SST_TEXTBOX_FLAG),	L"Orinrin ⁄≤‘ŒﬁØ∏Ω" },
 
-	{ SST_UNKNOWN, NULL }
+	{ (DWORD)SST_UNKNOWN, NULL }
 };
 
 
@@ -97,7 +97,7 @@ LRESULT CALLBACK SelectorWindowProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM 
 	{
 	case WM_CREATE:		return yavCreateSelectorCracker( hWnd, (LPCREATESTRUCT)lParam );
 	case WM_DESTROY:	yavDestroySelectorCracker( hWnd ); break;
-	case WM_SIZE:		yavSizeSelectorCracker( hWnd, wParam, LOWORD( lParam ), HIWORD( lParam ) ); return 0;
+	case WM_SIZE:		yavSizeSelectorCracker( hWnd, (WORD)wParam, LOWORD( lParam ), HIWORD( lParam ) ); return 0;
 	}
 	return ::DefWindowProcW( hWnd, msg, wParam, lParam );
 }

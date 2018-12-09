@@ -354,12 +354,12 @@ static void paintPage( RegViewPageData* data, HWND hPageWnd, HFONT hFont )
 		else
 		{
 			/*-- ライン出力 --*/
-			TextOutW( data->hDeviceContext, 0, y, lfString.c_str(), lfString.size() );
+			TextOutW( data->hDeviceContext, 0, y, lfString.c_str(), (int)lfString.size() );
 			lfString.clear();
 			y += *data->lfHeight;
 		}
 	}
-	TextOutW( data->hDeviceContext, 0, y, lfString.c_str(), lfString.size() );
+	TextOutW( data->hDeviceContext, 0, y, lfString.c_str(), (int)lfString.size() );
 
 
 	/*---- デバイスコンテキストの設定 ----*/
@@ -454,7 +454,7 @@ static int getCharWidth( RegViewPageData* data, const wchar_t* str, size_t lengt
 	wchar_t refChar[ 2 ];
 	unsigned long refCount;
 
-	if( !checkRefChar( str, length, refChar, step, refCount ) )
+	if( !checkRefChar( str, (unsigned long)length, refChar, step, refCount ) )
 	{// 参照文字解決しないもの
 		step = 1;
 		ret = data->charWidthTable[ str[ 0 ] ];
@@ -504,7 +504,7 @@ static bool checkRefChar( const wchar_t* str, unsigned long length, wchar_t refC
 					if( _wcsnicmp( str, sg_RefCharList[ i ].refString, n ) == 0 )
 					{
 						refChar[ 0 ] = sg_RefCharList[ i ].refChar;
-						step = n;
+						step = (unsigned long)n;
 						refCount = 1;
 						ret = true;
 						break;
@@ -540,7 +540,7 @@ static bool checkRefChar( const wchar_t* str, unsigned long length, wchar_t refC
 					refChar[ 1 ] = (wchar_t)((X % 0x400) + 0xDC00);
 					refCount = 2;
 				}
-				step = endPtr - str + 1;
+				step = (unsigned long)(endPtr - str + 1);
 				ret = true;
 			}
 		}

@@ -69,7 +69,7 @@ int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR cmdlin
 	if( msg.message == WM_QUIT )
 	{
 		YavSaveAppSetting( &appData );
-		return msg.wParam;
+		return (int)msg.wParam;
 	}
 
 

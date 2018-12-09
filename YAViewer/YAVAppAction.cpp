@@ -391,7 +391,7 @@ bool YavSaveFileTab( RegYavAppData* appData, LPCWSTR filePath, bool errdlg )
 			DWORD writeSize;
 			WORD BOM = L'\xfeff';
 			WriteFile( hFile, &BOM, sizeof( BOM ), &writeSize, NULL );
-			WriteFile( hFile, buf.c_str(), sizeof( wchar_t ) * buf.size(), &writeSize, NULL );
+			WriteFile( hFile, buf.c_str(), (DWORD)(sizeof( wchar_t ) * buf.size()), &writeSize, NULL );
 			CloseHandle( hFile );
 
 			ret = true;
@@ -576,8 +576,8 @@ bool YavSaveFileTree( RegYavAppData* appData, LPCWSTR filePath, bool errdlg )
 		{// ファイルにデータ書き出し
 			DWORD writeSize;
 			WORD BOM = L'\xfeff';
-			WriteFile( hFile, &BOM, sizeof( BOM ), &writeSize, NULL );
-			WriteFile( hFile, buf.c_str(), sizeof( wchar_t ) * buf.size(), &writeSize, NULL );
+			WriteFile( hFile, &BOM, (DWORD)(sizeof( BOM )), &writeSize, NULL );
+			WriteFile( hFile, buf.c_str(), (DWORD)(sizeof( wchar_t ) * buf.size()), &writeSize, NULL );
 			CloseHandle( hFile );
 
 			ret = true;
@@ -709,7 +709,7 @@ bool YavSendEditorString( RegYavAppData* appData, DWORD target, LPCWSTR string, 
 		{
 			unsigned long step, refCount;
 			wchar_t refChar[ 2 ];
-			if( !CheckRefChar( &string[ i ], length-i, refChar, step, refCount ) )
+			if( !CheckRefChar( &string[ i ], (unsigned long)(length-i), refChar, step, refCount ) )
 			{
 				str += string[ i ];
 				i++;
@@ -931,7 +931,7 @@ static void setSettingFilePath( LPCWSTR path, LPWSTR filePath, size_t length )
 	else
 	{
 		wcsncpy_s( filePath, length, path, length );
-		GetFullPathNameW( filePath, length, filePath, NULL );
+		GetFullPathNameW( filePath, (DWORD)length, filePath, NULL );
 	}
 }
 

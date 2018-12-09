@@ -86,7 +86,7 @@ LRESULT CALLBACK YAVSplitWindowProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM 
 	default: return ::DefWindowProcW( hWnd, msg, wParam, lParam );
 
 	case WM_CREATE:
-		SetWindowLongPtrW( hWnd, 0, (LONG)((LPCREATESTRUCT)lParam)->lpCreateParams );
+		SetWindowLongPtrW( hWnd, 0, (LONG_PTR)((LPCREATESTRUCT)lParam)->lpCreateParams );
 		break;
 	case WM_DESTROY:
 		{
@@ -96,7 +96,7 @@ LRESULT CALLBACK YAVSplitWindowProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM 
 		}
 		break;
 	case WM_SIZE:
-		splitWindowSizeCrack( hWnd, wParam, LOWORD( lParam ), HIWORD( lParam ) );
+		splitWindowSizeCrack( hWnd, (int)wParam, LOWORD( lParam ), HIWORD( lParam ) );
 		break;
 
 	case WM_LBUTTONDBLCLK:

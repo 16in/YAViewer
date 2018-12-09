@@ -471,7 +471,7 @@ DWORD GetTreeOpenItem( HWND hTreeWnd, LPWSTR* paths, DWORD count )
 			}
 		}
 
-		ret = list.size();
+		ret = (DWORD)list.size();
 	}
 
 	return ret;
@@ -705,7 +705,7 @@ static LRESULT treeCreateMessageCrack( HWND hWnd, LPCREATESTRUCT pCreateStruct )
 	LPCREATESTRUCT cs = pCreateStruct;
 	RegTreeWindowData* data = (RegTreeWindowData*)cs->lpCreateParams;
 	if( data == NULL ) return -1;
-	SetWindowLongPtrW( hWnd, 0, (LONG)data );
+	SetWindowLongPtrW( hWnd, 0, (LONG_PTR)data );
 
 
 	/*---- ツリーウィンドウ生成 ----*/
@@ -803,7 +803,7 @@ static void treeDirectoryMenu( HWND hWnd, RegTreeItemData* item, HTREEITEM hItem
 			wchar_t str[] = L"フォルダを閉じる";
 			mItemInfo.fType = MFT_STRING;
 			mItemInfo.dwTypeData = str;
-			mItemInfo.cch = wcslen( str );
+			mItemInfo.cch = (UINT)wcslen( str );
 			SetMenuItemInfoW( hPopup, IDM_TREE_OPENTREE, 0, &mItemInfo );
 		}
 
@@ -819,7 +819,7 @@ static void treeDirectoryMenu( HWND hWnd, RegTreeItemData* item, HTREEITEM hItem
 				wchar_t str[] = L"ディレクトリをツリーから削除する";
 				mItemInfo.fType = MFT_STRING;
 				mItemInfo.dwTypeData = str;
-				mItemInfo.cch = wcslen( str );
+				mItemInfo.cch = (UINT)wcslen( str );
 				::InsertMenuItemW( hPopup, 0, TRUE, &mItemInfo );
 			}
 			{
@@ -888,7 +888,7 @@ static void treeFileMenu( HWND hWnd, RegTreeItemData* item, HTREEITEM hItem, POI
 				wchar_t str[] = L"ファイルをツリーから削除する";
 				mItemInfo.fType = MFT_STRING;
 				mItemInfo.dwTypeData = str;
-				mItemInfo.cch = wcslen( str );
+				mItemInfo.cch = (UINT)wcslen( str );
 				::InsertMenuItemW( hPopup, 0, TRUE, &mItemInfo );
 			}
 			{

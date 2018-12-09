@@ -215,7 +215,7 @@ static LRESULT viewCreateMessage( HWND hWnd, LPCREATESTRUCTW cs )
 {
 	/*---- データを設定 ----*/
 	RegViewWindowData* data = (RegViewWindowData*)cs->lpCreateParams;
-	::SetWindowLongPtrW( hWnd, 0, (LONG)data );
+	::SetWindowLongPtrW( hWnd, 0, (LONG_PTR)data );
 
 
 	return 0;
@@ -396,7 +396,7 @@ void SetViewFile( HWND hViewWnd, aafile::AAFile* file )
 	{
 		/*---- データ作り直し ----*/
 		RegViewWindowData* data = releaseViewWindowData( hViewWnd );
-		SetWindowLongPtrW( hViewWnd, 0, (LONG)data );
+		SetWindowLongPtrW( hViewWnd, 0, (LONG_PTR)data );
 
 
 		/*---- スクロールバーの状態を変更 ----*/
@@ -538,7 +538,7 @@ static LRESULT CALLBACK viewPageWindowProc( HWND hWnd, UINT msg, WPARAM wParam, 
 
 
 			/*---- ウィンドウハンドルにデータを関連付ける ----*/
-			::SetWindowLongPtrW( hWnd, 0, (LONG)pageData );
+			::SetWindowLongPtrW( hWnd, 0, (LONG_PTR)pageData );
 
 
 			/*---- 表示する文字列を設定 ----*/
@@ -611,7 +611,7 @@ static LRESULT CALLBACK viewPageWindowProc( HWND hWnd, UINT msg, WPARAM wParam, 
 
 				wchar_t str[ 260 ];
 				swprintf_s( str, L"%d x %d行", page->width, page->lfCount );
-				TextOutW( hdc, 1, 1, str, wcslen( str ) );
+				TextOutW( hdc, 1, 1, str, (int)wcslen( str ) );
 
 				SetTextColor( hdc, oldTextColor );
 
@@ -706,7 +706,7 @@ static LRESULT CALLBACK viewPageWindowProc( HWND hWnd, UINT msg, WPARAM wParam, 
 				WORD key = 0;
 				if( wParam & MK_SHIFT )		key |= 0x0001;
 				if( wParam & MK_CONTROL )	key |= 0x0002;
-				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 0, key ), (LONG)&selItem );
+				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 0, key ), (LONG_PTR)&selItem );
 			}
 		}
 		break;
@@ -723,7 +723,7 @@ static LRESULT CALLBACK viewPageWindowProc( HWND hWnd, UINT msg, WPARAM wParam, 
 				WORD key = 0;
 				if( wParam & MK_SHIFT )		key |= 0x0001;
 				if( wParam & MK_CONTROL )	key |= 0x0002;
-				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 0, key ), (LONG)&selItem );
+				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 0, key ), (LONG_PTR)&selItem );
 			}
 		}
 		break;
@@ -741,7 +741,7 @@ static LRESULT CALLBACK viewPageWindowProc( HWND hWnd, UINT msg, WPARAM wParam, 
 				WORD key = 0;
 				if( wParam & MK_SHIFT )		key |= 0x0001;
 				if( wParam & MK_CONTROL )	key |= 0x0002;
-				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 1, key ), (LONG)&selItem );
+				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 1, key ), (LONG_PTR)&selItem );
 			}
 		}
 		break;
@@ -758,7 +758,7 @@ static LRESULT CALLBACK viewPageWindowProc( HWND hWnd, UINT msg, WPARAM wParam, 
 				WORD key = 0;
 				if( wParam & MK_SHIFT )		key |= 0x0001;
 				if( wParam & MK_CONTROL )	key |= 0x0002;
-				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 1, key ), (LONG)&selItem );
+				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 1, key ), (LONG_PTR)&selItem );
 			}
 		}
 		break;
@@ -776,7 +776,7 @@ static LRESULT CALLBACK viewPageWindowProc( HWND hWnd, UINT msg, WPARAM wParam, 
 				WORD key = 0;
 				if( wParam & MK_SHIFT )		key |= 0x0001;
 				if( wParam & MK_CONTROL )	key |= 0x0002;
-				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 2, key ), (LONG)&selItem );
+				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 2, key ), (LONG_PTR)&selItem );
 			}
 		}
 		break;
@@ -793,7 +793,7 @@ static LRESULT CALLBACK viewPageWindowProc( HWND hWnd, UINT msg, WPARAM wParam, 
 				WORD key = 0;
 				if( wParam & MK_SHIFT )		key |= 0x0001;
 				if( wParam & MK_CONTROL )	key |= 0x0002;
-				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 2, key ), (LONG)&selItem );
+				SendMessageW( GetParent( hWnd ), WM_VIEW_SELECTITEM, MAKELONG( 2, key ), (LONG_PTR)&selItem );
 			}
 		}
 		break;

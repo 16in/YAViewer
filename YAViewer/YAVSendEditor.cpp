@@ -147,8 +147,8 @@ static BOOL CALLBACK enumWindowProc( HWND hWnd, LPARAM lParam )
 	
 	
 	/*---- ウィンドウの情報を得る ----*/
-	GetWindowTextW( hWnd, winText, txtLength );
-	GetClassNameW( hWnd, clsName, clsLength );
+	GetWindowTextW( hWnd, winText, (int)txtLength );
+	GetClassNameW( hWnd, clsName, (int)clsLength );
 
 
 	/*---- 判定 ----*/
@@ -187,8 +187,8 @@ static HWND getChildWindow( HWND hWnd, LPCWSTR text, LPCWSTR clsName )
 	
 	
 	/*---- ウィンドウの情報を得る ----*/
-	GetWindowTextW( hWnd, winText, txtLength );
-	GetClassNameW( hWnd, winclsName, clsLength );
+	GetWindowTextW( hWnd, winText, (int)txtLength );
+	GetClassNameW( hWnd, winclsName, (int)clsLength );
 
 
 	/*---- 判定 ----*/

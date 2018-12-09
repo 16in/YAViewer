@@ -146,7 +146,7 @@ static LRESULT CALLBACK shortcutWindowProc( HWND hWnd, UINT msg, WPARAM wParam, 
 		{
 			CREATESTRUCT* cs = (LPCREATESTRUCT)lParam;
 			shortcutData* data = (shortcutData*)cs->lpCreateParams;
-			SetWindowLong( hWnd, 0, (LONG)data );
+			SetWindowLongPtr( hWnd, 0, (LONG_PTR)data );
 
 			// リストビュー生成
 			DWORD style = WS_CHILD | WS_VISIBLE | LVS_REPORT | LVS_NOCOLUMNHEADER;

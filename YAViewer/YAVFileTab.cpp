@@ -254,7 +254,7 @@ static LRESULT CALLBACK yavFileTabProc( HWND hWnd, UINT msg, WPARAM wParam, LPAR
 	default:			return ::DefWindowProcW( hWnd, msg, wParam, lParam );
 	case WM_CREATE:		return yavFileTabCreateMessage( hWnd, (LPCREATESTRUCT)lParam );
 	case WM_DESTROY:	yavFileTabDestroyMessage( hWnd ); break;
-	case WM_SIZE:		return yavFileTabSizeMessage( hWnd, wParam, LOWORD( lParam ), HIWORD( lParam ) );
+	case WM_SIZE:		return yavFileTabSizeMessage( hWnd, (int)wParam, LOWORD( lParam ), HIWORD( lParam ) );
 	case WM_NOTIFY:		return yavFileTabNotifyMessage( hWnd, (UINT)wParam, (NMHDR*)lParam );
 	}
 
@@ -270,7 +270,7 @@ static LRESULT yavFileTabCreateMessage( HWND hWnd, LPCREATESTRUCT cs )
 	/*---- 管理データ生成 ----*/
 	YavFileTabData* data = new YavFileTabData;
 	ZeroMemory( data, sizeof( YavFileTabData ) );
-	SetWindowLongPtrW( hWnd, 0, (LONG)data );
+	SetWindowLongPtrW( hWnd, 0, (LONG_PTR)data );
 
 
 	/*---- タブウィンドウ生成 ----*/
@@ -355,7 +355,7 @@ static void setupFileTab( HWND hWnd )
 	YavFileTabSubData* data = new YavFileTabSubData;
 	ZeroMemory( data, sizeof( YavFileTabSubData ) );
 	data->oldIndex = -1;
-	SetWindowLongPtrW( hWnd, GWLP_USERDATA, (LONG)data );
+	SetWindowLongPtrW( hWnd, GWLP_USERDATA, (LONG_PTR)data );
 
 
 	/*---- アイコン生成 -----*/
@@ -365,7 +365,7 @@ static void setupFileTab( HWND hWnd )
 
 	/*---- サブクラス化 ----*/
 	data->oldTabWndProc = (WNDPROC)GetWindowLongPtrW( hWnd, GWLP_WNDPROC );
-	SetWindowLongPtrW( hWnd, GWLP_WNDPROC, (LONG)yavFileTabSubClassProc );
+	SetWindowLongPtrW( hWnd, GWLP_WNDPROC, (LONG_PTR)yavFileTabSubClassProc );
 
 
 	/*---- フォント設定 ----*/
@@ -387,7 +387,7 @@ static LRESULT CALLBACK yavFileTabSubClassProc( HWND hWnd, UINT msg, WPARAM wPar
 			SetWindowLongPtrW( hWnd, GWLP_USERDATA, 0 );
 
 			LRESULT ret = ::CallWindowProcW( data->oldTabWndProc, hWnd, msg, wParam, lParam );
-			SetWindowLongPtrW( hWnd, GWLP_WNDPROC, (LONG)data->oldTabWndProc );
+			SetWindowLongPtrW( hWnd, GWLP_WNDPROC, (LONG_PTR)data->oldTabWndProc );
 
 			delete data;
 
@@ -401,7 +401,7 @@ static LRESULT CALLBACK yavFileTabSubClassProc( HWND hWnd, UINT msg, WPARAM wPar
 	case WM_MOUSEMOVE:
 		if( GetCapture() != hWnd )
 		{
-			return yavFileTabSubClassMouseMoveCrack( hWnd, LOWORD( lParam ), HIWORD( lParam ), wParam );
+			return yavFileTabSubClassMouseMoveCrack( hWnd, LOWORD( lParam ), HIWORD( lParam ), (UINT)wParam );
 		}
 		else
 		{
@@ -432,7 +432,7 @@ static LRESULT CALLBACK yavFileTabSubClassProc( HWND hWnd, UINT msg, WPARAM wPar
 				/*---- 閉じるボタン判定 ----*/
 				if( data->closeSkip <= 0 )
 				{
-					return yavFileTabSubClassMouseMoveCrack( hWnd, LOWORD( lParam ), HIWORD( lParam ), wParam );
+					return yavFileTabSubClassMouseMoveCrack( hWnd, LOWORD( lParam ), HIWORD( lParam ), (UINT)wParam );
 				}
 				else
 				{

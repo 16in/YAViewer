@@ -97,7 +97,7 @@ LRESULT CALLBACK YAVAppWindowProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lP
 	case WM_CREATE:			return appWindowCreateCrack( hWnd, (LPCREATESTRUCT)lParam );
 	case WM_DESTROY:		return appWindowDestroyCrack( hWnd );
 	case WM_COMMAND:		return appWindowCommandCrack( hWnd, LOWORD( wParam ), HIWORD( wParam ), (HWND)lParam );
-	case WM_SIZE:			return appWindowSizeCrack( hWnd, wParam, LOWORD( lParam ), HIWORD( lParam ) );
+	case WM_SIZE:			return appWindowSizeCrack( hWnd, (int)wParam, LOWORD( lParam ), HIWORD( lParam ) );
 	case WM_MOVE:			return appWindowMoveCrack( hWnd, LOWORD( lParam ), HIWORD( lParam ) );
 	case WM_NOTIFY:			return appWindowNotifyCrack( hWnd, (UINT)wParam, (NMHDR*)lParam );
 	case WM_CONTEXTMENU:	return appWindowContextMenu( hWnd, (HWND)wParam, (short)LOWORD( lParam ), (short)HIWORD( lParam ) );
@@ -117,7 +117,7 @@ LRESULT CALLBACK YAVAppWindowProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lP
 		break;
 
 	case YAV_WM_DELFILE:// ファイルをタブから削除
-		if( YavDelFile( GetYAVAppData( hWnd ), wParam ) )
+		if( YavDelFile( GetYAVAppData( hWnd ), (int)wParam ) )
 		{
 			// 描画領域を更新
 			RECT rect; GetClientRect( hWnd, &rect );
@@ -239,7 +239,7 @@ static LRESULT appWindowCreateCrack( HWND hWnd, LPCREATESTRUCT pCreateStruct )
 	/*---- 登録データ設定 ----*/
 	LPCREATESTRUCT cs = pCreateStruct;
 	RegYavAppData* appData = (RegYavAppData*)cs->lpCreateParams;
-	SetWindowLongPtrW( hWnd, 0, (LONG)appData );
+	SetWindowLongPtrW( hWnd, 0, (LONG_PTR)appData );
 
 
 	/*---- フォントを生成 ----*/
@@ -493,7 +493,7 @@ static LRESULT appWindowCommandCrack( HWND hWnd, WORD id, WORD notifyCode, HWND 
 
 	case IDM_MOST_TOP:// 最前面表示
 		{
-			DWORD exStyle = GetWindowLongPtrW( hWnd, GWL_EXSTYLE );
+			DWORD exStyle = (DWORD)GetWindowLongPtrW( hWnd, GWL_EXSTYLE );
 			if( exStyle & WS_EX_TOPMOST )
 			{
 				SetWindowPos( hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_FRAMECHANGED );
@@ -529,7 +529,7 @@ static LRESULT appWindowCommandCrack( HWND hWnd, WORD id, WORD notifyCode, HWND 
 			
 			RECT rect;
 			GetClientRect( hWnd, &rect );
-			appWindowSizeCrack( hWnd, 0, rect.right-rect.left, rect.bottom-rect.top );
+			appWindowSizeCrack( hWnd, 0, (WORD)(rect.right-rect.left), (WORD)(rect.bottom-rect.top) );
 			if( enable )
 			{
 				CheckMenuItem( GetMenu( hWnd ), IDM_TAB_BUTTON, MF_BYCOMMAND | MF_CHECKED );
