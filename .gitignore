@@ -28,3 +28,7 @@
 *.exe
 *.out
 *.app
+
+# Visual Studio
+*.asp
+*.user

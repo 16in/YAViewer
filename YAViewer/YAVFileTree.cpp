@@ -800,7 +800,7 @@ static void treeDirectoryMenu( HWND hWnd, RegTreeItemData* item, HTREEITEM hItem
 			mItemInfo.cbSize = sizeof( mItemInfo );
 			mItemInfo.fMask = MIIM_TYPE;
 
-			wchar_t* str = L"フォルダを閉じる";
+			wchar_t str[] = L"フォルダを閉じる";
 			mItemInfo.fType = MFT_STRING;
 			mItemInfo.dwTypeData = str;
 			mItemInfo.cch = wcslen( str );
@@ -816,7 +816,7 @@ static void treeDirectoryMenu( HWND hWnd, RegTreeItemData* item, HTREEITEM hItem
 				mItemInfo.fMask = MIIM_TYPE | MIIM_ID;
 				mItemInfo.wID = IDM_TREE_DELETEROOT;
 
-				wchar_t* str = L"ディレクトリをツリーから削除する";
+				wchar_t str[] = L"ディレクトリをツリーから削除する";
 				mItemInfo.fType = MFT_STRING;
 				mItemInfo.dwTypeData = str;
 				mItemInfo.cch = wcslen( str );
@@ -885,7 +885,7 @@ static void treeFileMenu( HWND hWnd, RegTreeItemData* item, HTREEITEM hItem, POI
 				mItemInfo.fMask = MIIM_TYPE | MIIM_ID;
 				mItemInfo.wID = IDM_TREE_DELETEROOT;
 
-				wchar_t* str = L"ファイルをツリーから削除する";
+				wchar_t str[] = L"ファイルをツリーから削除する";
 				mItemInfo.fType = MFT_STRING;
 				mItemInfo.dwTypeData = str;
 				mItemInfo.cch = wcslen( str );

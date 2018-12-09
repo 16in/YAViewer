@@ -156,9 +156,10 @@ static LRESULT CALLBACK shortcutWindowProc( HWND hWnd, UINT msg, WPARAM wParam, 
 
 
 			LVCOLUMNW col;
+			wchar_t text[] = L"–¼‘O";
 			col.mask = LVCF_FMT | LVCF_TEXT;
 			col.fmt = LVCFMT_LEFT;
-			col.pszText = L"–¼‘O";
+			col.pszText = text;
 			ListView_InsertColumn( data->hListViewWindow, 0, &col );
 		}
 		break;
