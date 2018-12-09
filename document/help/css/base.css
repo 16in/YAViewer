@@ -1,0 +1,37 @@
+body {
+    width:960px;
+    margin:20px auto;
+}
+header, nav, section, footer {
+    display:block;
+    border:1px solid #ccc;
+    margin:5px;
+    padding:20px;
+	border-radius:4px;
+}
+nav {
+    text-align:left;
+	padding:5px 5px 5px 0.5em;
+}
+header {
+    text-align:center;
+    padding:30px;
+}
+footer {
+    text-align:center;
+    padding:30px;
+}
+section h2 {
+	background-color:#444;
+	color:#fff;
+	border-radius:4px;
+	letter-spacing:0em;
+	padding:5px 5px 5px 0.5em;
+	margin:0 0 0 0;
+}
+section article {
+	margin:0 0 2em 0;
+}
+section article p {
+	padding:0 0 0 1em;
+}

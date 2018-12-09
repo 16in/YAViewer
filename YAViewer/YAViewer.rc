@@ -1,0 +1,128 @@
+//----------------------------------------------------------------------
+//
+// YAViewer リソース定義
+//
+//----------------------------------------------------------------------
+#include <Windows.h>
+#include "YAVResource.h"
+
+
+//------------------------------
+// アイコンリソース
+//
+IDI_APP				ICON	"Resource\\yavApp.ico"
+IDI_TABCLOSE		ICON	"Resource\\tabclose.ico"
+IDI_TABCLOSE_SEL	ICON	"Resource\\tabclose_sel.ico"
+
+
+//------------------------------
+// メインメニューリソース
+//
+IDR_MAINMENU MENU
+BEGIN
+	POPUP	"ファイル(&F)"
+	BEGIN
+		MENUITEM "ファイルを開く(&O)",	IDM_FILEOPEN
+		MENUITEM SEPARATOR
+		MENUITEM "タブ情報を保存(&S)",	IDM_TABSAVE
+		MENUITEM "タブ情報を復元(&R)",	IDM_TABOPEN
+		MENUITEM SEPARATOR
+		MENUITEM "ツリー情報を保存",	IDM_TREESAVE
+		MENUITEM "ツリー情報を復元",	IDM_TREEOPEN
+		MENUITEM SEPARATOR
+		MENUITEM "終了(&E)"				IDM_EXIT
+	END
+
+	POPUP	"表示(&V)"
+	BEGIN
+		MENUITEM "最前面に表示(&T)"		IDM_MOST_TOP
+		MENUITEM "AAをツールチップで表示しない" IDM_VIEW_TOOLTIP
+		//MENUITEM "タブをボタン表示にする(&B)" IDM_TAB_BUTTON
+		MENUITEM SEPARATOR
+		MENUITEM "通常表示(&N)"			IDM_NORMAL_VIEW
+		MENUITEM "カタログ表示(&C)"		IDM_CATEGORY_VIEW
+		//MENUITEM "エディタ表示(&E)"		IDM_EDITOR_VIEW
+		MENUITEM SEPARATOR
+		MENUITEM "分割表示入替(&S)"		IDM_SPLIT_SWAP
+		MENUITEM SEPARATOR
+		POPUP "カタログ表示サイズ"
+		BEGIN
+			MENUITEM "32"				IDM_CATEGORY_32
+			MENUITEM "64"				IDM_CATEGORY_64
+			MENUITEM "96"				IDM_CATEGORY_96
+			MENUITEM "128"				IDM_CATEGORY_128
+			MENUITEM "160"				IDM_CATEGORY_160
+			MENUITEM "192"				IDM_CATEGORY_192
+			MENUITEM "224"				IDM_CATEGORY_224
+			MENUITEM "256"				IDM_CATEGORY_256
+		END
+		POPUP "ツリー表示拡張子"
+		BEGIN
+			MENUITEM ".mlt"				IDM_ENABLE_MLT
+			MENUITEM ".ast"				IDM_ENABLE_AST
+			MENUITEM ".asd"				IDM_ENABLE_ASD
+			MENUITEM ".txt"				IDM_ENABLE_TXT
+		END
+	END
+
+	POPUP	"送信先一括設定(&S)"
+	BEGIN
+		MENUITEM "(´д｀)Edit(&E)"		IDM_SEND_FACEEDIT
+		MENUITEM "OrinrinEditor(&O)"	IDM_SEND_ORINEDIT
+	END
+
+	POPUP	"ヘルプ(&H)"
+	BEGIN
+		MENUITEM "バージョン(&V)"		IDM_VERSION
+	END
+END
+
+
+//------------------------------
+// ファイルタブコンテキストメニューリソース
+//
+IDR_FILETABMENU MENU
+BEGIN
+	POPUP	"ファイルタブコンテキストメニュー"
+	BEGIN
+		MENUITEM "閉じる(&C)",							IDM_CLOSEFILE
+		MENUITEM "すべてのタブを閉じる(&A)",			IDM_ALL_CLOSE
+		MENUITEM "このファイル以外すべて閉じる(&O)",	IDM_CLOSE_OTHER
+		MENUITEM SEPARATOR
+		MENUITEM "タブ色を設定",						IDM_TAB_COLOR
+		MENUITEM "タブ色をクリア",						IDM_TAB_CLEAR_COLOR
+		MENUITEM SEPARATOR
+		MENUITEM "ファイルのあるフォルダを開く",		IDM_TAB_OPEN_DIRECTORY
+	END
+END
+
+
+//------------------------------
+// ファイルツリーコンテキストメニューリソース
+//
+/* ディレクトリ */
+IDR_FILETREEDIR_MENU MENU
+BEGIN
+	POPUP	"ファイルツリーディレクトリコンテキストメニュー"
+	BEGIN
+		MENUITEM "フォルダを展開する"					IDM_TREE_OPENTREE
+		MENUITEM "このフォルダより下のすべてのフォルダを開く"	IDM_TREE_OPENALLDIRECTORY_TREE
+		MENUITEM SEPARATOR
+		MENUITEM "このフォルダをルートフォルダにする"	IDM_TREE_ROOTITEM
+		MENUITEM SEPARATOR
+		MENUITEM "フォルダをエクスプローラで開く",		IDM_TREE_OPEN_DIRECTORY
+	END
+END
+
+/* ファイル */
+IDR_FILETREEFILE_MENU MENU
+BEGIN
+	POPUP	"ファイルツリーファイルコンテキストメニュー"
+	BEGIN
+		MENUITEM "ファイルを開く"						IDM_TREE_OPENFILE
+		MENUITEM SEPARATOR
+		MENUITEM "このファイルをルートファイルにする"	IDM_TREE_ROOTITEM
+		MENUITEM SEPARATOR
+		MENUITEM "ファイルのあるフォルダを開く",		IDM_TREE_OPEN_DIRECTORY
+	END
+END

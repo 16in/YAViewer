@@ -1,7 +1,7 @@
 
-	YAViewer
+	AAFileAccessor
 
-	Copyright (c) 2014 _16in/◆7N5y1wtOn2
+	Copyright (c) 2012 _16in/◆7N5y1wtOn2
 
 	Permission is hereby granted, free of charge, to any person obtaining
 	a copy of this software and associated documentation files (the "Software"),
@@ -30,7 +30,7 @@
 	引用元は下記URLです。
 	http://sourceforge.jp/projects/opensource/wiki/licenses%2FMIT_license
 
-	Copyright (c) 2014 _16in/◆7N5y1wtOn2
+	Copyright (c) 2012 _16in/◆7N5y1wtOn2
 
 	以下に定める条件に従い、
 	本ソフトウェアおよび関連文書のファイル（以下「ソフトウェア」）
