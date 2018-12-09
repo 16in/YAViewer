@@ -19,7 +19,7 @@
 
 
 #define YAV_APP_CAPTION		L"YAViewer"
-#define YAV_VERSION			L"YAViewer ver0.02"
+#define YAV_VERSION			L"YAViewer ver0.021"
 
 
 //----------------------------------------------

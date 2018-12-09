@@ -1,116 +1,134 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="source">
+      <UniqueIdentifier>{3aea3f52-69f7-495c-8d50-9c37cc3dce0e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="source\View">
+      <UniqueIdentifier>{b93281c4-996d-427d-9f4c-eff440ba09aa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="source\Tree">
+      <UniqueIdentifier>{e22fdd3b-1e7c-4d01-a8b7-c671a3b87185}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Tab">
+      <UniqueIdentifier>{141df61c-319a-470a-84bd-b898229e9b32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\refchar">
+      <UniqueIdentifier>{d6338b53-e0af-442e-8744-c7b2bc5664db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Sender">
+      <UniqueIdentifier>{098c08e2-2dc0-470b-8623-e54a187df913}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\SplitWindow">
+      <UniqueIdentifier>{246b7604-72f8-4167-9529-f32e465687f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Dialog">
+      <UniqueIdentifier>{66eb1db3-8f1a-424c-9470-e981970c7abf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{f4929a09-5923-4f70-9ebe-22d4743bd7cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Shortcup">
+      <UniqueIdentifier>{2a953ab2-fec8-4345-832d-e2f337dbb38f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\YAViewer\refchar.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YAViewer\YAVAppAction.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YAViewer\YAVDialog.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YAViewer\YAVFileTab.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YAViewer\YAVFileTree.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YAViewer\YAVFileTreeMessage.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YAViewer\YAViewerMessage.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YAViewer\YAVResource.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YAViewer\YAVSendEditor.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YAViewer\YAVSendSelector.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YAViewer\YAVShortcut.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\YAViewer\YAVSplitWindow.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\YAViewer\YAVView.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>source\View</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\YAViewer\YAVViewDetail.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>source\View</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\YAViewer\YAVViewMessage.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>source\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\YAVFileTree.h">
+      <Filter>source\Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\YAVFileTreeMessage.h">
+      <Filter>source\Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\YAVFileTab.h">
+      <Filter>source\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\refchar.h">
+      <Filter>source\refchar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\YAVSendSelector.h">
+      <Filter>source\Sender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\YAVSendEditor.h">
+      <Filter>source\Sender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\YAVSplitWindow.h">
+      <Filter>source\SplitWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\YAVDialog.h">
+      <Filter>source\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\YAVResource.h">
+      <Filter>resource</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\YAViewer\YAVWindow.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\YAVAppAction.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\YAViewerMessage.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\YAViewer\YAVShortcut.h">
+      <Filter>source\Shortcup</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\YAViewer\refchar.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\YAViewer\YAVAppAction.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\YAViewer\YAVDialog.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\YAViewer\YAVFileTab.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\YAViewer\YAVFileTree.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\YAViewer\YAViewer.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\YAViewer\YAVSendEditor.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\YAViewer\YAVSendSelector.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\YAViewer\YAVShortcut.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\YAViewer\YAVSplitWindow.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\YAViewer\YAVView.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>source\View</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\YAViewer\YAVViewDetail.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>source\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YAViewer\YAVFileTree.cpp">
+      <Filter>source\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YAViewer\YAVFileTab.cpp">
+      <Filter>source\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YAViewer\refchar.cpp">
+      <Filter>source\refchar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YAViewer\YAVSendSelector.cpp">
+      <Filter>source\Sender</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YAViewer\YAVSendEditor.cpp">
+      <Filter>source\Sender</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YAViewer\YAVSplitWindow.cpp">
+      <Filter>source\SplitWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YAViewer\YAVDialog.cpp">
+      <Filter>source\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YAViewer\YAVAppAction.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\YAViewer\YAViewer.cpp">
+      <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\YAViewer\YAVWindow.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>source</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="..\..\..\YAViewer\YAViewer.rc">
-      <Filter>リソース ファイル</Filter>
-    </ResourceCompile>
+    <ClCompile Include="..\..\..\YAViewer\YAVShortcut.cpp">
+      <Filter>source\Shortcup</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="YAViewer.exe.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\..\YAViewer\YAViewer.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
