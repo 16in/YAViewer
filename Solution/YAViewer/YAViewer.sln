@@ -8,7 +8,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YAViewer", "YAViewer\YAView
 		{7584DC3D-73D1-4A3C-AB33-F686FF12A505} = {7584DC3D-73D1-4A3C-AB33-F686FF12A505}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AAFileAccessor", "AAFileAccessor\AAFileAccessor.vcxproj", "{7584DC3D-73D1-4A3C-AB33-F686FF12A505}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AAFileAccessor", "..\..\AAFileAccessor\Soluction\AAFileAccessor\AAFileAccessor\AAFileAccessor.vcxproj", "{7584DC3D-73D1-4A3C-AB33-F686FF12A505}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YAVFileTreeTest", "YAVFileTreeTest\YAVFileTreeTest.vcxproj", "{7581F70A-0173-4DF9-9DF9-28667264EB06}"
 EndProject
