@@ -53,6 +53,10 @@
 #define IDM_CATEGORY_192	0x2105			/* カテゴリ表示サイズ - 192 */
 #define IDM_CATEGORY_224	0x2106			/* カテゴリ表示サイズ - 224 */
 #define IDM_CATEGORY_256	0x2107			/* カテゴリ表示サイズ - 256 */
+#define IDM_CATEGORY_384	0x2108			/* カテゴリ表示サイズ - 384 */
+#define IDM_CATEGORY_512	0x2109			/* カテゴリ表示サイズ - 512 */
+#define IDM_CATEGORY_768	0x210a			/* カテゴリ表示サイズ - 768 */
+#define IDM_CATEGORY_1024	0x210b			/* カテゴリ表示サイズ - 1024 */
 
 // 表示 - 拡張子選択
 #define IDM_ENABLE_TXT		0x2180			/* 拡張子選択 - .txt */

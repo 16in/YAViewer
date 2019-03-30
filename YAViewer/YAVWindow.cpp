@@ -395,6 +395,10 @@ static LRESULT appWindowCreateCrack( HWND hWnd, LPCREATESTRUCT pCreateStruct )
 	case 192:	::SendMessageW( hWnd, WM_COMMAND, MAKEWPARAM( IDM_CATEGORY_192, 0 ), 0 ); break;
 	case 224:	::SendMessageW( hWnd, WM_COMMAND, MAKEWPARAM( IDM_CATEGORY_224, 0 ), 0 ); break;
 	case 256:	::SendMessageW( hWnd, WM_COMMAND, MAKEWPARAM( IDM_CATEGORY_256, 0 ), 0 ); break;
+	case 384:	::SendMessageW( hWnd, WM_COMMAND, MAKEWPARAM( IDM_CATEGORY_384, 0 ), 0 ); break;
+	case 512:	::SendMessageW( hWnd, WM_COMMAND, MAKEWPARAM( IDM_CATEGORY_512, 0 ), 0 ); break;
+	case 768:	::SendMessageW( hWnd, WM_COMMAND, MAKEWPARAM( IDM_CATEGORY_768, 0 ), 0 ); break;
+	case 1024:	::SendMessageW( hWnd, WM_COMMAND, MAKEWPARAM( IDM_CATEGORY_1024, 0 ), 0 ); break;
 	default:
 		SetViewCategorySize( appData->hFileView, appData->categorySize );
 		break;
@@ -579,6 +583,10 @@ static LRESULT appWindowCommandCrack( HWND hWnd, WORD id, WORD notifyCode, HWND 
 	case IDM_CATEGORY_192:	SetViewCategorySize( GetYAVAppData( hWnd )->hFileView, 192 );	break;
 	case IDM_CATEGORY_224:	SetViewCategorySize( GetYAVAppData( hWnd )->hFileView, 224 );	break;
 	case IDM_CATEGORY_256:	SetViewCategorySize( GetYAVAppData( hWnd )->hFileView, 256 );	break;
+	case IDM_CATEGORY_384:	SetViewCategorySize( GetYAVAppData( hWnd )->hFileView, 384 );	break;
+	case IDM_CATEGORY_512:	SetViewCategorySize( GetYAVAppData( hWnd )->hFileView, 512 );	break;
+	case IDM_CATEGORY_768:	SetViewCategorySize( GetYAVAppData( hWnd )->hFileView, 768 );	break;
+	case IDM_CATEGORY_1024:	SetViewCategorySize( GetYAVAppData( hWnd )->hFileView, 1024 );	break;
 
 	// 拡張子選択処理
 	case IDM_ENABLE_MLT: SetEnableTreeItemExtension( GetYAVAppData( hWnd )->hFileTree, GetEnableTreeItemExtension( GetYAVAppData( hWnd )->hFileTree ) ^ TITEM_EXT_MLT ); break;
@@ -589,7 +597,7 @@ static LRESULT appWindowCommandCrack( HWND hWnd, WORD id, WORD notifyCode, HWND 
 
 
 	// カテゴリラジオマーク変更
-	if( IDM_CATEGORY_32 <= id && id <= IDM_CATEGORY_256 )
+	if( IDM_CATEGORY_32 <= id && id <= IDM_CATEGORY_1024 )
 	{
 		HMENU hMenu = GetMenu( hWnd );
 		MENUITEMINFO info;
@@ -597,7 +605,7 @@ static LRESULT appWindowCommandCrack( HWND hWnd, WORD id, WORD notifyCode, HWND 
 		info.cbSize = sizeof( info );
 		info.fMask = MIIM_STATE;
 
-		for( WORD i = IDM_CATEGORY_32; i <= IDM_CATEGORY_256; i++ )
+		for( WORD i = IDM_CATEGORY_32; i <= IDM_CATEGORY_1024; i++ )
 		{
 			if( i == id )
 			{// チェック ON
