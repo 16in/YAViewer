@@ -522,6 +522,43 @@ bool YavSendClipBoardString( RegYavAppData* appData, HWND hWnd, LPCWSTR string, 
 
 
 //-------------------------------------
+// 指定の文字列をクリップボードへ送信
+//
+bool YavSendClipBoardUnicodeString( RegYavAppData* appData, HWND hWnd, LPCWSTR string, size_t length )
+{
+	std::wstring str;
+
+	/*---- 参照文字変換 ----*/
+	for( size_t i = 0; i < length; )
+	{
+		unsigned long step, refCount;
+		wchar_t refChar[ 2 ];
+		if( !CheckRefChar( &string[ i ], (unsigned long)(length - i), refChar, step, refCount ) )
+		{
+			str += string[ i ];
+			i++;
+		}
+		else
+		{
+			if( refCount == 1 )
+			{
+				str += refChar[ 0 ];
+			}
+			else
+			{
+				str += refChar[ 0 ];
+				str += refChar[ 1 ];
+			}
+			i += step;
+		}
+	}
+	string = str.c_str( );
+
+	return YavSendClipBoardString( appData, hWnd, string, length );
+}
+
+
+//-------------------------------------
 // ファイルツリーを保存する
 //
 bool YavSaveFileTree( RegYavAppData* appData, LPCWSTR filePath, bool errdlg )
@@ -974,6 +1011,7 @@ static void writeWindowInitData( RegYavAppData* appData, LPCWSTR settingfile )
 static void writeSettingInitData( RegYavAppData* appData, LPCWSTR settingfile )
 {
 	// 送信先
+	WritePrivateProfileIntW( L"YAView.Setting", L"send.target.clipUnicodeCopy", appData->clipUnicodeCopy, settingfile );
 	WritePrivateProfileIntW( L"YAView.Setting", L"send.target.left", appData->sendTargetLeft, settingfile );
 	WritePrivateProfileIntW( L"YAView.Setting", L"send.target.right", appData->sendTargetRight, settingfile );
 	WritePrivateProfileIntW( L"YAView.Setting", L"send.target.center", appData->sendTargetCenter, settingfile );
@@ -1018,6 +1056,7 @@ static void readWindowInitData( RegYavAppData* appData, LPCWSTR settingfile )
 static void readSettingInitData( RegYavAppData* appData, LPCWSTR settingfile )
 {
 	// 送信先
+	appData->clipUnicodeCopy	= GetPrivateProfileIntW( L"YAView.Setting", L"send.target.clipUnicodeCopy", 0, settingfile );
 	appData->sendTargetLeft		= GetPrivateProfileIntW( L"YAView.Setting", L"send.target.left",	SST_FACE_EDIT, settingfile );
 	appData->sendTargetCenter	= GetPrivateProfileIntW( L"YAView.Setting", L"send.target.center",	SST_FACE_EDIT | SST_TEXTBOX_FLAG, settingfile );
 	appData->sendTargetRight	= GetPrivateProfileIntW( L"YAView.Setting", L"send.target.right",	SST_CLIPBOARD, settingfile );

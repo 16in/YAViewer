@@ -796,15 +796,17 @@ static void treeDirectoryMenu( HWND hWnd, RegTreeItemData* item, HTREEITEM hItem
 		// 開くメニューの状態設定
 		if( tvItem.state & TVIS_EXPANDED )
 		{
-			MENUITEMINFOW mItemInfo = { 0 };
-			mItemInfo.cbSize = sizeof( mItemInfo );
-			mItemInfo.fMask = MIIM_TYPE;
+			{
+				MENUITEMINFOW mItemInfo = { 0 };
+				mItemInfo.cbSize = sizeof( mItemInfo );
+				mItemInfo.fMask = MIIM_TYPE;
 
-			wchar_t str[] = L"フォルダを閉じる";
-			mItemInfo.fType = MFT_STRING;
-			mItemInfo.dwTypeData = str;
-			mItemInfo.cch = (UINT)wcslen( str );
-			SetMenuItemInfoW( hPopup, IDM_TREE_OPENTREE, 0, &mItemInfo );
+				wchar_t str[ ] = L"フォルダを閉じる";
+				mItemInfo.fType = MFT_STRING;
+				mItemInfo.dwTypeData = str;
+				mItemInfo.cch = (UINT)wcslen( str );
+				SetMenuItemInfoW( hPopup, IDM_TREE_OPENTREE, 0, &mItemInfo );
+			}
 		}
 
 		// ルート削除メニューの追加判定

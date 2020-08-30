@@ -131,4 +131,9 @@
       <Filter>resource</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\YAViewer\Resource\yavApp.ico" />
+    <Image Include="..\..\..\YAViewer\Resource\tabclose.ico" />
+    <Image Include="..\..\..\YAViewer\Resource\tabclose_sel.ico" />
+  </ItemGroup>
 </Project>

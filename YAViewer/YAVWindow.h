@@ -31,6 +31,7 @@ typedef struct _tagRegYavAppData
 	long			fontSize;					// フォントサイズ
 
 	//-- 送信先設定
+	DWORD			clipUnicodeCopy;			// クリップボードにユニコード変換して送信するか
 	DWORD			sendTargetLeft;				// 左クリック送信先
 	DWORD			sendTargetRight;			// 右クリック送信先
 	DWORD			sendTargetCenter;			// 中クリック送信先

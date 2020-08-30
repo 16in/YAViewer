@@ -19,7 +19,7 @@
 
 
 #define YAV_APP_CAPTION		L"YAViewer"
-#define YAV_VERSION			L"YAViewer ver0.021"
+#define YAV_VERSION			L"YAViewer ver0.22"
 
 
 //----------------------------------------------
@@ -141,7 +141,14 @@ LRESULT CALLBACK YAVAppWindowProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lP
 			}
 			if( target == SST_CLIPBOARD )
 			{
-				YavSendClipBoardString( GetYAVAppData( hWnd ), hWnd, item->itemString, item->itemLength );
+				if( GetYAVAppData( hWnd )->clipUnicodeCopy != 0 )
+				{
+					YavSendClipBoardUnicodeString( GetYAVAppData( hWnd ), hWnd, item->itemString, item->itemLength );
+				}
+				else
+				{
+					YavSendClipBoardString( GetYAVAppData( hWnd ), hWnd, item->itemString, item->itemLength );
+				}
 			}
 			else
 			{
@@ -342,6 +349,13 @@ static LRESULT appWindowCreateCrack( HWND hWnd, LPCREATESTRUCT pCreateStruct )
 	if( appData->tabButtonMode )
 	{// デフォがfalseのはずなので、合わせて変更する
 		::SendMessageW( hWnd, WM_COMMAND, MAKEWPARAM( IDM_TAB_BUTTON, 0 ), 0 );
+	}
+
+
+	/*---- クリップボードユニコード転送の有効無効 ----*/
+	if( appData->clipUnicodeCopy != 0 )
+	{// デフォがfalseのはずなので、合わせて変更する
+		CheckMenuItem( GetMenu( hWnd ), IDM_CLIP_UNICODE, MF_BYCOMMAND | MF_CHECKED );
 	}
 
 
@@ -552,6 +566,20 @@ static LRESULT appWindowCommandCrack( HWND hWnd, WORD id, WORD notifyCode, HWND 
 		break;
 	case IDM_EDITOR_VIEW:// エディタ表示に切り替え
 		SetViewMode( GetYAVAppData( hWnd )->hFileView, 2 );
+		break;
+
+	// クリップボードUnicode送信
+	case IDM_CLIP_UNICODE:
+		if( GetYAVAppData( hWnd )->clipUnicodeCopy != 0 )
+		{
+			GetYAVAppData( hWnd )->clipUnicodeCopy = 0;
+			CheckMenuItem( GetMenu( hWnd ), IDM_CLIP_UNICODE, MF_BYCOMMAND | MF_UNCHECKED );
+		}
+		else
+		{
+			GetYAVAppData( hWnd )->clipUnicodeCopy = 1;
+			CheckMenuItem( GetMenu( hWnd ), IDM_CLIP_UNICODE, MF_BYCOMMAND | MF_CHECKED );
+		}
 		break;
 
 	// 送信先設定

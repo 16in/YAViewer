@@ -64,6 +64,9 @@
 #define IDM_ENABLE_AST		0x2182			/* 拡張子選択 - .ast */
 #define IDM_ENABLE_ASD		0x2183			/* 拡張子選択 - .asd */
 
+// 設定
+#define IDM_CLIP_UNICODE	0x4100			/* クリップボードユニコード送信 */
+
 // 送信先
 #define IDM_SEND_FACEEDIT	0x4000			/* 送信先 - (´д｀)Edit */
 #define IDM_SEND_ORINEDIT	0x4001			/* 送信先 - OrinrinEditor */
@@ -93,6 +96,7 @@
 
 #define IDM_TREE_OPENTREE		0x9000			/* ツリー - ディレクトリを展開する */
 #define IDM_TREE_OPENALLDIRECTORY_TREE 0x9010	/* ツリー - 指定ディレクトリ以下をすべて展開する */
+#define IDM_TREE_CLOSEALLDIRECTORY_TREE 0x9020	/* ツリー - 指定ディレクトリ以下をすべて閉じる */
 #define	IDM_TREE_OPENFILE		0x9400			/* ツリー - ファイルを開く */
 #define IDM_TREE_OPEN_DIRECTORY	0x9800			/* ツリー - エクスプローラで開く */
 #define IDM_TREE_DELETEROOT		0x9801			/* ツリー - ディレクトリを削除する */

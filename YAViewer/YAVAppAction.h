@@ -138,6 +138,12 @@ bool YavSendClipBoardString( RegYavAppData* appData, HWND hWnd, LPCWSTR string, 
 
 
 //-------------------------------------
+// 指定の文字列をユニコードに変換してクリップボードへ送信
+//
+bool YavSendClipBoardUnicodeString( RegYavAppData* appData, HWND hWnd, LPCWSTR string, size_t length );
+
+
+//-------------------------------------
 // 指定の文字列をエディタへ送信
 //
 bool YavSendEditorString( RegYavAppData* appData, DWORD target, LPCWSTR string, size_t length );
